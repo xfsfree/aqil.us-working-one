@@ -1,1 +1,13 @@
-xbox.ink
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benim Sitem</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Merhaba, dünyam!</h1>
+    <p>Bu benim GitHub Pages sitem.</p>
+</body>
+</html>
