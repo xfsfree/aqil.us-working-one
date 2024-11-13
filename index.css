@@ -1,54 +1,58 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+* {
+    box-sizing: border-box; /* Tüm öğelerin kutu modelini ayarlayın */
+}
+
+html, body {
+    width: 100%; /* Genişliği %100 yapın */
+    margin: 0; /* Varsayılan margin'leri sıfırlayın */
+    padding: 0; /* Varsayılan padding'leri sıfırlayın */
     overflow-x: hidden; /* Ekranın sağa sola kaymasını engelle */
+    font-family: Arial, sans-serif; /* Genel yazı tipi ayarı */
+    background-color: #f4f4f4; /* Arka plan rengi */
 }
 
 header {
-    background: #333;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
+    background: #333; /* Header arka plan rengi */
+    color: #fff; /* Header yazı rengi */
+    padding: 10px 0; /* Header iç boşluk */
+    text-align: center; /* Header metni ortala */
 }
 
 .container {
     width: 100%; /* Genişliği %100 yap */
     max-width: 1200px; /* İsterseniz maksimum genişlik belirleyebilirsiniz */
-    margin: auto;
+    margin: auto; /* Ortalamak için otomatik margin */
     padding: 0 20px; /* Kenar boşlukları ekleyin */
-    overflow: hidden;
 }
 
 .service {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin: 20px 0;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background: #fff; /* Servis arka plan rengi */
+    border: 1px solid #ddd; /* Servis kenar rengi */
+    border-radius: 5px; /* Kenar yuvarlama */
+    margin: 20px 0; /* Servisler arası boşluk */
+    padding: 20px; /* Servis iç boşluk */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Gölge efekti */
 }
 
 .service h2 {
-    color: #333;
+    color: #333; /* Servis başlık rengi */
 }
 
 .service p {
-    color: #666;
+    color: #666; /* Servis açıklama rengi */
 }
 
 footer {
-    text-align: center;
-    padding: 20px;
-    background: #333;
-    color: #fff;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    text-align: center; /* Footer metni ortala */
+    padding: 20px; /* Footer iç boşluk */
+    background: #333; /* Footer arka plan rengi */
+    color: #fff; /* Footer yazı rengi */
+    position: relative; /* Footer konum ayarı */
+    bottom: 0; /* Footer alt kısımda */
+    width: 100%; /* Footer genişliği %100 */
 }
 
 .icon {
-    font-size: 50px;
-    color: #4CAF50;
+    font-size: 50px; /* İkon boyutu */
+    color: #4CAF50; /* İkon rengi */
 }
