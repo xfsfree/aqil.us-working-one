@@ -12,8 +12,9 @@
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
-    min-height: 100vh;
+    height: 100vh; /* Sayfanın tam yüksekliğini kapla */
     background: #0e1538;
+    overflow: hidden; /* Kaydırma sorununu önle */
 }
 
 video {
