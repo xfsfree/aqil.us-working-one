@@ -1,3 +1,4 @@
+/* Genel sıfırlama ve temel stiller */
 * {
     margin: 0;
     padding: 0;
@@ -25,20 +26,22 @@ video {
     pointer-events: none; /* Sağ tıklama engelleniyor */
 }
 
+/* Buton stilleri */
 a {
-    position: absolute;
-    top: 300px;
+    position: relative;
+    top: 300px; /* Buton 300 piksel aşağıda ortalanacak */
+    margin: 0 auto; /* Yatayda ortalama */
     opacity: 0.7;
     padding: 10px 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     background: rgba(5, 2, 92, 0.589);
-    margin: 40px;
     transition: 1s;
     overflow: hidden;
     text-decoration: none;
-    white-space: nowrap; /* Metni bir satıra sığdırmak için */
+    white-space: nowrap; /* Yazının taşmasını engeller */
+    width: fit-content; /* Buton genişliği içeriğe göre ayarlanacak */
 }
 
 a:hover {
@@ -64,15 +67,6 @@ a:hover::before {
     width: 120%;
 }
 
-@keyframes animate {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
 a::after {
     content: "";
     position: absolute;
@@ -94,20 +88,27 @@ a span {
     text-transform: uppercase;
     letter-spacing: 4px;
     transition: 0.5s;
-    text-align: center; /* Yazıyı butona ortalar */
+    word-wrap: break-word; /* Uzun kelimelerin bölünmesini sağlar */
+    text-align: center; /* Yazıyı ortalar */
 }
 
-a:hover span {
-    opacity: 1;
-    color: #0e1538;
+/* Animasyon */
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
-@media (max-width: 600px) {
+/* Mobil uyumlu tasarım */
+@media (max-width: 768px) {
     a {
-        padding: 12px 20px; /* Butonun mobilde daha büyük olmasını sağla */
+        padding: 10px 20px; /* Mobilde butonun boyutlarını küçült */
     }
 
     a span {
-        font-size: 1.5em; /* Mobilde yazıyı küçült */
+        font-size: 1.5em; /* Mobilde yazı boyutunu küçült */
     }
 }
