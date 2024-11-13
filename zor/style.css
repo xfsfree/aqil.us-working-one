@@ -4,22 +4,22 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Courier New', Courier, monospace;
-    user-select: none; /* Yazı seçimini devre dışı bırak */
 }
 
-html, body {
-    overflow: hidden;
-    height: 100vh;
-    cursor: default; /* Fare imlecini normal imleçle sınırla */
+body {
+    overflow: hidden; /* Sayfada kaydırma çubuğu olmasın */
 }
 
+/* Container ve video stilleri */
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     background: #0e1538;
+    position: relative;
 }
 
 video {
@@ -27,37 +27,15 @@ video {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     object-fit: cover;
-    pointer-events: none; /* Video üzerinde işlem yapılamaz */
+    pointer-events: none; /* Sağ tıklama engelleniyor */
 }
 
 /* Buton stilleri */
 a {
     position: absolute;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0.7;
-    padding: 10px 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(5, 2, 92, 0.589);
-    transition: 1s;
-    overflow: hidden;
-    text-decoration: none;
-    white-space: nowrap;
-    width: fit-content;
-    pointer-events: auto; /* Buton etkileşimli */
-    user-select: none; /* Yazı seçilemez */
-    -webkit-user-drag: none; /* Webkit tarayıcıları için sürükleme engelleme */
-    user-drag: none; /* Diğer tarayıcılar için sürükleme engelleme */
-}
-
-a {
-    position: absolute;
-    bottom: 15px;
+    bottom: 15px; /* Ekranın altından 15px yukarıda */
     left: 50%;
     transform: translateX(-50%);
     opacity: 0.7;
@@ -79,6 +57,14 @@ a {
     box-sizing: border-box; /* padding ile birlikte genişliği hesaba kat */
 }
 
+a:hover {
+    background: var(--clr);
+    box-shadow: 0 0 10px var(--clr),
+                0 0 30px var(--clr),
+                0 0 60px var(--clr),
+                0 0 100px var(--clr);
+}
+
 a::before {
     content: "";
     position: absolute;
@@ -97,6 +83,32 @@ a:hover::before {
     height: 120%;
 }
 
+a::after {
+    content: "";
+    position: absolute;
+    background: #0e1538;
+    inset: 4px;
+    transition: 0.5s;
+}
+
+a:hover::after {
+    background: var(--clr);
+}
+
+a span {
+    position: relative;
+    z-index: 1;
+    font-size: 2em;
+    color: #fff;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    transition: 0.5s;
+    word-wrap: break-word; /* Uzun kelimelerin bölünmesini sağlar */
+    text-align: center; /* Yazıyı ortalar */
+}
+
+/* Animasyon */
 @keyframes animate {
     0% {
         transform: rotate(0deg);
@@ -109,10 +121,10 @@ a:hover::before {
 /* Mobil uyumlu tasarım */
 @media (max-width: 768px) {
     a {
-        padding: 10px 20px;
+        padding: 10px 20px; /* Mobilde butonun boyutlarını küçült */
     }
 
     a span {
-        font-size: 1.5em;
+        font-size: 1.5em; /* Mobilde yazı boyutunu küçült */
     }
 }
