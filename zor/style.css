@@ -1,3 +1,38 @@
+/* Genel sıfırlama ve temel stiller */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    user-select: none; /* Yazı seçimini devre dışı bırak */
+}
+
+html, body {
+    overflow: hidden;
+    height: 100vh;
+    cursor: default; /* Fare imlecini normal imleçle sınırla */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background: #0e1538;
+}
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    pointer-events: none; /* Video üzerinde işlem yapılamaz */
+}
+
+/* Buton stilleri */
 a {
     position: absolute;
     bottom: 15px;
@@ -18,4 +53,72 @@ a {
     user-select: none; /* Yazı seçilemez */
     -webkit-user-drag: none; /* Webkit tarayıcıları için sürükleme engelleme */
     user-drag: none; /* Diğer tarayıcılar için sürükleme engelleme */
+}
+
+a:hover {
+    background: var(--clr);
+    box-shadow: 0 0 10px var(--clr),
+                0 0 30px var(--clr),
+                0 0 60px var(--clr),
+                0 0 100px var(--clr);
+}
+
+a::before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 400%;
+    background: var(--clr);
+    transition: 1s;
+    animation: animate 2s linear infinite;
+    animation-delay: calc(0.33s * var(--i));
+}
+
+a:hover::before {
+    width: 120%;
+}
+
+a::after {
+    content: "";
+    position: absolute;
+    background: #0e1538;
+    inset: 4px;
+    transition: 0.5s;
+}
+
+a:hover::after {
+    background: var(--clr);
+}
+
+a span {
+    position: relative;
+    z-index: 1;
+    font-size: 2em;
+    color: #fff;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    transition: 0.5s;
+    text-align: center;
+}
+
+/* Animasyon */
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Mobil uyumlu tasarım */
+@media (max-width: 768px) {
+    a {
+        padding: 10px 20px;
+    }
+
+    a span {
+        font-size: 1.5em;
+    }
 }
