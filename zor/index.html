@@ -29,10 +29,17 @@
     </style>
 </head>
 <body>
-    <!-- Video tam ekran olarak otomatik başlatılır ve sessizce oynatılır -->
+    <!-- Video tam ekran olarak otomatik başlatılır -->
     <video autoplay loop playsinline>
         <source src="rewad.mp4" type="video/mp4">
         Tarayıcınız bu videoyu desteklemiyor.
     </video>
+    <script>
+        // Sayfa yüklendiğinde videoyu sesli başlatmayı deneyen JavaScript kodu
+        document.querySelector('video').muted = false;
+        document.querySelector('video').play().catch(error => {
+            console.log("Tarayıcı nedeniyle sesli başlatılamıyor: " + error);
+        });
+    </script>
 </body>
 </html>
