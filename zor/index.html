@@ -18,6 +18,7 @@
     </div>
 
     <script>
+        // Video başlatma ve durdurma fonksiyonu
         function playPauseVideo() {
             const video = document.getElementById("videoElement");
             if (video.paused) {
@@ -29,6 +30,11 @@
 
         // Sağ tıklamayı engelle
         document.addEventListener("contextmenu", function(e) {
+            e.preventDefault();
+        });
+
+        // Klavye girişlerini engelle
+        document.addEventListener("keydown", function(e) {
             e.preventDefault();
         });
     </script>
