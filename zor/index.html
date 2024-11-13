@@ -26,28 +26,13 @@
             height: 100%;
             object-fit: cover;
         }
-
-        /* Üstüne yazı koymak isterseniz */
-        .content {
-            position: relative;
-            color: #ffffff;
-            z-index: 1;
-            text-align: center;
-            font-family: Arial, sans-serif;
-        }
     </style>
 </head>
 <body>
-    <!-- Video tam ekran olarak otomatik başlatılır -->
-    <video autoplay muted loop>
+    <!-- Video tam ekran olarak otomatik başlatılır ve sesi açık şekilde oynatılır -->
+    <video autoplay loop>
         <source src="rewad.mp4" type="video/mp4">
         Tarayıcınız bu videoyu desteklemiyor.
     </video>
-
-    <!-- İsteğe bağlı metin içeriği -->
-    <div class="content">
-        <h1>Info Sayfasına Hoş Geldiniz</h1>
-        <p>Bu sayfada tam ekran bir video arka planda oynatılmaktadır.</p>
-    </div>
 </body>
 </html>
