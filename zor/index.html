@@ -1,67 +1,22 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REWADIN AYAQQABISI MAWTAGA KENDINDE BATIBDI</title>
-    <style>
-        /* Arka plan rengini belirleyen CSS */
-        body, html {
-            background-color: #242523;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    <link rel="stylesheet" href="style.css">
+    <title>Video Play/Pause Button</title>
+</head>
+<body>
+    <div class="container">
+        <video id="videoElement" autoplay loop playsinline>
+            <source src="rewad.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <a href="#" class="video-btn" onclick="playPauseVideo()" style="--clr:#ff22bb; --i:0">
+            <span>Play/Pause</span>
+        </a>
+    </div>
 
-        /* Videonun tam ekran olması için */
-        video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Videonun sağ tık ve basılı tutma ile indirilmesini engelle */
-        video {
-            pointer-events: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        /* Video kontrol butonlarını şık hale getirme */
-        .custom-controls {
-            position: absolute;
-            bottom: 20px;
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            pointer-events: auto;
-        }
-
-        .button {
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-            font-size: 16px;
-            margin: 5px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .button:hover {
-            background-color: #45a049;
-        }
-    </style>
     <script>
         function playPauseVideo() {
             const video = document.getElementById("videoElement");
@@ -77,17 +32,5 @@
             e.preventDefault();
         });
     </script>
-</head>
-<body>
-    <!-- Video tam ekran olarak otomatik başlatılır -->
-    <video id="videoElement" autoplay loop playsinline>
-        <source src="rewad.mp4" type="video/mp4">
-        Tarayıcınız bu videoyu desteklemiyor.
-    </video>
-
-    <!-- Kontrol butonları -->
-    <div class="custom-controls">
-        <button class="button" onclick="playPauseVideo()">Oynat/Durdur</button>
-    </div>
 </body>
 </html>
