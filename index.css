@@ -22,7 +22,7 @@ header {
     width: 100%; /* Genişliği %100 yap */
     max-width: 1200px; /* İsterseniz maksimum genişlik belirleyebilirsiniz */
     margin: auto; /* Ortalamak için otomatik margin */
-    padding: 0 20px; /* Kenar boşlukları ekleyin */
+    padding: 0 10px; /* Kenar boşlukları ekleyin, daha az padding */
 }
 
 .service {
@@ -32,7 +32,8 @@ header {
     margin: 20px 0; /* Servisler arası boşluk */
     padding: 20px; /* Servis iç boşluk */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Gölge efekti */
-    width: calc(100% - 40px); /* Genişliği %100 - padding */
+    width: 100%; /* Genişliği %100 yap */
+    max-width: 100%; /* Maksimum genişlik %100 */
 }
 
 .service h2 {
@@ -41,6 +42,13 @@ header {
 
 .service p {
     color: #666; /* Servis açıklama rengi */
+}
+
+@media (max-width: 768px) {
+    .service {
+        margin: 10px 0; /* Mobilde daha az margin */
+        padding: 15px; /* Mobilde daha az padding */
+    }
 }
 
 footer {
