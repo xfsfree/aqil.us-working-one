@@ -28,12 +28,14 @@ video {
 }
 
 a {
+    position: absolute; top: 300px;
+    opacity: 0.7;
     position: relative;
-    padding: 20px 60px;
+    padding: 10px 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(5, 2, 92, 0.589);
     margin: 40px;
     transition: 1s;
     overflow: hidden;
