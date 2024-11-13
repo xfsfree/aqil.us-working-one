@@ -32,6 +32,7 @@ header {
     margin: 20px 0; /* Servisler arası boşluk */
     padding: 20px; /* Servis iç boşluk */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+    width: calc(100% - 40px); /* Genişliği %100 - padding */
 }
 
 .service h2 {
