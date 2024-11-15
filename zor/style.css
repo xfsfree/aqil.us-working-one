@@ -22,6 +22,17 @@ body {
     position: relative;
 }
 
+/* Yükleniyor yazısı stili */
+#loadingText {
+    position: absolute;
+    font-size: 2em;
+    color: #333;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Video stilleri */
 video {
     position: absolute;
     top: 0;
@@ -35,7 +46,7 @@ video {
 /* Buton stilleri */
 a {
     position: absolute;
-    bottom: 20%; /* Ekranın altından 10px yukarıda */
+    bottom: 20%;
     left: 50%;
     transform: translateX(-50%);
     opacity: 0.7;
@@ -53,7 +64,7 @@ a {
     user-select: none;
     -webkit-user-drag: none;
     user-drag: none;
-    box-sizing: border-box; /* padding ile birlikte genişliği hesaba kat */
+    box-sizing: border-box;
 }
 
 a:hover {
@@ -67,11 +78,11 @@ a:hover {
 a::before {
     content: "";
     position: absolute;
-    top: -10px; /* Butonun etrafında ışığın düzgün görünmesini sağlar */
+    top: -10px;
     left: -10px;
     width: 100%;
     height: 100%;
-    border-radius: 50px; /* Işığın yuvarlak görünmesini sağlar */
+    border-radius: 50px;
     background: var(--clr);
     transition: 1s;
     animation: animate 2s linear infinite;
@@ -103,8 +114,8 @@ a span {
     text-transform: uppercase;
     letter-spacing: 4px;
     transition: 0.5s;
-    word-wrap: break-word; /* Uzun kelimelerin bölünmesini sağlar */
-    text-align: center; /* Yazıyı ortalar */
+    word-wrap: break-word;
+    text-align: center;
 }
 
 /* Animasyon */
@@ -120,10 +131,10 @@ a span {
 /* Mobil uyumlu tasarım */
 @media (max-width: 768px) {
     a {
-        padding: 10px 20px; /* Mobilde butonun boyutlarını küçült */
+        padding: 10px 20px;
     }
 
     a span {
-        font-size: 1.5em; /* Mobilde yazı boyutunu küçült */
+        font-size: 1.5em;
     }
 }
