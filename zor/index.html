@@ -8,10 +8,15 @@
 </head>
 <body>
     <div class="container">
+        <!-- Yükleniyor yazısı -->
+        <div id="loadingText">Yükleniyor...</div>
+        
         <video id="videoElement" autoplay loop playsinline>
             <source src="rewad.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
+        
+        <!-- Başlat/Durdur butonu -->
         <a href="#" id="videoBtn" class="video-btn" onclick="playPauseVideo()" style="--clr:#030d67; --i:0">
             <span>Başşşlat/Saxla</span>
         </a>
@@ -28,9 +33,10 @@
             }
         }
 
-        // Video yüklendiğinde butonu göster
+        // Video yüklendiğinde butonu göster ve "Yükleniyor..." yazısını gizle
         document.getElementById("videoElement").addEventListener("loadeddata", function() {
             document.getElementById("videoBtn").style.display = "flex";
+            document.getElementById("loadingText").style.display = "none";
         });
 
         // Başlangıçta butonu gizle
