@@ -4,26 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>REWADIN AYAQQABISI MAWTAGA KENDINE BATIBDI</title>
+    <title>SHUSH</title>
 </head>
 <body>
     <div class="container">
-        <!-- Yükleniyor yazısı -->
-        <div id="loadingText">Yüklenir...</div>
+
+        <div id="loadingText">Loading...</div>
         
         <video id="videoElement" autoplay loop playsinline>
             <source src="rewad.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         
-        <!-- Başlat/Durdur butonu -->
+
         <a href="#" id="videoBtn" class="video-btn" onclick="playPauseVideo()" style="--clr:#030d67; --i:0">
-            <span>Başşşlat/Saxla</span>
+            <span>Başlat/Dayandır</span>
         </a>
     </div>
 
     <script>
-        // Video başlatma ve durdurma fonksiyonu
+
         function playPauseVideo() {
             const video = document.getElementById("videoElement");
             if (video.paused) {
@@ -33,21 +33,20 @@
             }
         }
 
-        // Video yüklendiğinde butonu göster ve "Yükleniyor..." yazısını gizle
         document.getElementById("videoElement").addEventListener("loadeddata", function() {
             document.getElementById("videoBtn").style.display = "flex";
             document.getElementById("loadingText").style.display = "none";
         });
 
-        // Başlangıçta butonu gizle
+
         document.getElementById("videoBtn").style.display = "none";
 
-        // Sağ tıklamayı engelle
+
         document.addEventListener("contextmenu", function(e) {
             e.preventDefault();
         });
 
-        // Klavye girişlerini engelle
+
         document.addEventListener("keydown", function(e) {
             e.preventDefault();
         });
