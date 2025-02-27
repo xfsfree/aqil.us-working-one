@@ -86,5 +86,31 @@ footer a {
     position: relative; left: 5%;
 }
 
+::-webkit-scrollbar{
+   width: 12px;
+}
+
+::-webkit-scrollbar-track{
+   background: #000;
+   border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb{
+   background: #444;
+   border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+   background: #666;
+}
+
+::-webkit-scrollbar-button{
+   display: none;
+}
+
+html{
+   scrollbar-width: thin;
+   scrollbar-color: #444 #000;
+}
 </style>
 </html>
