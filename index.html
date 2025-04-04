@@ -1,287 +1,422 @@
-  <!DOCTYPE html>
-  <html lang="en">
-
-  <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta property="og:description" content="Payment system all in one - by Undo">
-    <link rel="shortcut icon" href="favicons/img-xboxfs.ico" type="image/x-icon">
-
-    <title>Undo Payment</title>
-
-    <link rel="stylesheet" href="css/css-font-awsome.min.css">
-    <link rel="stylesheet" href="css/css-bootstrap.min.css">
-    <link rel="stylesheet" href="css/css-carousel.theme.min.css">
-    <link rel="stylesheet" href="css/css-carousel.min.css">
-    <link rel="stylesheet" href="css/css-style.css">
-
-
-
-
-
-  </head>
-
-  <body style="background-image: url('images/bg.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-
-    <header class="header">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 d-flex justify-content-center mt-3 mb-3">
-            <h1 style="
-    background-image: radial-gradient(92% 75% at 18.2% 90.5%, rgb(255, 216, 121) 0%, rgb(255, 255, 255) 100%);
-    -webkit-background-clip: text;
-    color: transparent;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    transform: translate(-5%, 10%);
-  ">
-    Undo Payment Page
-  </h1>
-          </div>
-        </div>
-      </div>
-
+    <title>aqil.us | Premium Online Courses</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f1f5f9;
+            color: var(--dark);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), #7c3aed);
+            color: white;
+            padding: 1rem 5%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: #fbbf24;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #fbbf24;
+        }
+        
+        .hero {
+            padding: 5rem 5%;
+            text-align: center;
+            background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            position: relative;
+            color: white;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #e2e8f0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #4338ca;
+            transform: translateY(-2px);
+        }
+        
+        .courses {
+            padding: 5rem 5%;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+        
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .course-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .course-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .course-content {
+            padding: 1.5rem;
+        }
+        
+        .course-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .course-content p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+        
+        .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .features {
+            padding: 5rem 5%;
+            background-color: white;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            background-color: #f8fafc;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card p {
+            color: var(--gray);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            margin-bottom: 2rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">aqil.<span>us</span></div>
+            <div class="nav-links">
+                <a href="#courses">Courses</a>
+                <a href="#features">Features</a>
+                <a href="#contact">Contact</a>
+                <a href="#" class="btn">Login</a>
+            </div>
+        </nav>
     </header>
-
-
-    <section class="main_content mt-0 pt-0">
-      <div class="container">
-        <div class="content_wrp">
-          <div class="home-demo">
-            <h3 class="section_title" style="color: #c00000;">Follower Bot</h3>
-            <div class="owl-carousel owl-theme">
-
-              <div class="item" data-tilt>
-                <div class="item_wrp">
-                  <div class="img"><a href="https://buy.stripe.com/dR65mE3gV7bd0w0aEE" target="_blank"><img src="images/1dayfb.png" alt=""></a>
-                    <div class="download"><span class="downloadbtnSpan" onclick="Download_ID('9P8RQH67TTT1')"><i class="fa-solid fa-credit-card"></i></span></div>
-                  </div>
-                  <div class="content">
-                    <h1 class="title">$10 USD</h1>
-                  </div>
-                </div>
-              </div>
-              <div class="item" data-tilt>
-                <div class="item_wrp">
-                  <div class="img"><a href="https://buy.stripe.com/6oE8yQ9Fj3Z17YscMU" target="_blank"><img src="images/1weekfb.png" alt=""></a>
-                    <div class="download"><span class="downloadbtnSpan" onclick="Download_ID('9NB54XTF084M')"><i class="fa-solid fa-credit-card"></i></span></div>
-                  </div>
-                  <div class="content">
-                    <h1 class="title">$20 USD</h1>
-                  </div>
-                </div>
-              </div>
-              <div class="item" data-tilt>
-                <div class="item_wrp">
-                  <div class="img"><a href="https://buy.stripe.com/00g5mE3gV0MP2E83cl" target="_blank"><img src="images/1monthfb.png" alt=""></a>
-                    <div class="download"><span class="downloadbtnSpan" onclick="Download_ID('9P5HV0HVZTSK')"><i class="fa-solid fa-credit-card"></i></span></div>
-                  </div>
-                  <div class="content">
-                    <h1 class="title">$30 USD</h1>
-                  </div>
-                </div>
-              </div>
-              <div class="item" data-tilt>
-                <div class="item_wrp">
-                  <div class="img"><a href="https://buy.stripe.com/4gw16o7xbcvxbaEeV4" target="_blank"><img src="images/lifetimefb.png" alt=""></a>
-                    <div class="download"><span class="downloadbtnSpan" onclick="Download_ID('BX3M8L83BBRW')"><i class="fa-solid fa-credit-card"></i></span></div>
-                  </div>
-                  <div class="content">
-                    <h1 class="title">$75 USD</h1>
-                  </div>
-                </div>
-                </div>
-              </div>
-
-
-            </div>
-          </div>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Expand Your Knowledge</h1>
+            <p>Learn from industry experts with our premium online courses. Whether you're a beginner or advanced, we have the perfect course for you.</p>
+            <a href="#courses" class="btn">Explore Courses</a>
         </div>
-      </div>
     </section>
-
-
-    <section class="main_content mt-0 pt-0">
-      <div class="container">
-        <div class="content_wrp">
-          <div class="home-demo">
-            <h3 class="section_title" style="color: #003a93;">LFG Post Spammer</h3>
-            <div class="owl-carousel owl-theme">
-
-              <div class="item" data-tilt>
-                <div class="item_wrp">
-                  <div class="img"><a href="https://buy.stripe.com/5kAg1i5p3gLNguY5kv" target="_blank"><img src="images/1daylfg.png" alt=""></a>
-                    <div class="download"><span class="downloadbtnSpan" onclick="Download_ID('C1QJM5XT9SXV')"><i class="fa-solid fa-credit-card"></i></span></div>
-                  </div>
-                  <div class="content">
-                    <h1 class="title">$10 USD</h1>
-                  </div>
-                </div>
-              </div>
-              <div class="item" data-tilt>
-                <div class="item_wrp">
-                  <div class="img"><a href="https://buy.stripe.com/9AQ2ascRv2UXemQ6ot" target="_blank"><img src="images/1weeklfg.png" alt=""></a>
-                    <div class="download"><span class="downloadbtnSpan" onclick="Download_ID('C10GWTNNNBZ8')"><i class="fa-solid fa-credit-card"></i></span></div>
-                  </div>
-                  <div class="content">
-                    <h1 class="title">$20 USD</h1>
-                  </div>
-                </div>
-              </div>
-              <div class="item" data-tilt>
-                <div class="item_wrp">
-                  <div class="img"><a href="https://buy.stripe.com/5kA5mEaJn0MP2E828b" target="_blank"><img src="images/1monthlfg.png" alt=""></a>
-                    <div class="download"><span class="downloadbtnSpan" onclick="Download_ID('_____product_Id_to_download_____')"><i class="fa-solid fa-credit-card"></i></span></div>
-                  </div>
-                  <div class="content">
-                    <h1 class="title">$50 USD</h1>
-                  </div>
-                </div>
-              </div>
-              <div class="item" data-tilt>
-                <div class="item_wrp">
-                  <div class="img"><a href="https://buy.stripe.com/4gwcP604Janp5Qk002" target="_blank"><img src="images/lifetimelfg.png" alt=""></a>
-                    <div class="download"><span class="downloadbtnSpan" onclick="Download_ID('_____product_Id_to_download_____')"><i class="fa-solid fa-credit-card"></i></span></div>
-                  </div>
-                  <div class="content">
-                    <h1 class="title">$100 USD</h1>
-                  </div>
-                </div>
-              </div>
-
-
-            </div>
-          </div>
+    
+    <section class="courses" id="courses">
+        <div class="section-title">
+            <h2>Popular Courses</h2>
+            <p>Top-selling courses created by our expert instructors</p>
         </div>
-      </div>
-    </section>
-
-    <section class="main_content mt-0 pt-0">
-      <div class="container">
-        <div class="content_wrp">
-          <div class="home-demo">
-            <h3 class="section_title" style="color: #0015ff;">Gamertag Autoclaimer</h3>
-            <div class="owl-carousel owl-theme">
-
-              <div class="item" data-tilt>
-                <div class="item_wrp">
-                  <div class="img"><a href="https://buy.stripe.com/28o5mEbNr535fqU28k" target="_blank"><img src="images/1dayac.png" alt=""></a>
-                    <div class="download"><span class="downloadbtnSpan" onclick="Download_ID('9P8RQH67TTT1')"><i class="fa-solid fa-credit-card"></i></span></div>
-                  </div>
-                  <div class="content">
-                    <h1 class="title">$10 USD</h1>
-                  </div>
+        
+        <div class="course-grid">
+            <div class="course-card">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Web Development" class="course-img">
+                <div class="course-content">
+                    <h3>Complete Web Development</h3>
+                    <p>Master HTML, CSS and JavaScript to build modern websites from scratch.</p>
+                    <div class="price">$49.99</div>
+                    <button class="btn" onclick="stripeCheckout('web-dev')">Buy Now</button>
                 </div>
-              </div>
-              <div class="item" data-tilt>
-                <div class="item_wrp">
-                  <div class="img"><a href="https://buy.stripe.com/dR65mE3gV7bdemQcMZ" target="_blank"><img src="images/1weekac.png" alt=""></a>
-                    <div class="download"><span class="downloadbtnSpan" onclick="Download_ID('_____product_Id_to_download_____')"><i class="fa-solid fa-credit-card"></i></span></div>
-                  </div>
-                  <div class="content">
-                    <h1 class="title">$20 USD</h1>
-                  </div>
-                </div>
-              </div>
-              <div class="item" data-tilt>
-                <div class="item_wrp">
-                  <div class="img"><a href="https://buy.stripe.com/28o9CU7xb9jlfqU28m" target="_blank"><img src="images/1monthac.png" alt=""></a>
-                    <div class="download"><span class="downloadbtnSpan" onclick="Download_ID('_____product_Id_to_download_____')"><i class="fa-solid fa-credit-card"></i></span></div>
-                  </div>
-                  <div class="content">
-                    <h1 class="title">$50 USD</h1>
-                  </div>
-                </div>
-              </div>
-              <div class="item" data-tilt>
-                <div class="item_wrp">
-                  <div class="img"><a href="https://buy.stripe.com/bIY16o6t7eDFdiM6oD" target="_blank"><img src="images/lifetimeac.png" alt=""></a>
-                    <div class="download"><span class="downloadbtnSpan" onclick="Download_ID('_____product_Id_to_download_____')"><i class="fa-solid fa-credit-card"></i></span></div>
-                  </div>
-                  <div class="content">
-                    <h1 class="title">$150 USD</h1>
-                  </div>
-                </div>
-              </div>
-
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="main_content mt-0 pt-0">
-      <div class="container">
-        <div class="content_wrp">
-          <div class="home-demo">
-            <h3 class="section_title" style="color: #009302;">Gamerscore Mod</h3>
-            <div class="owl-carousel owl-theme">
-
-              <div class="item" data-tilt>
-                <div class="item_wrp">
-                  <div class="img"><a href="https://buy.stripe.com/8wMg1ieZDeDF7Ys7sI" target="_blank"><img src="images/50kscore.png" alt=""></a>
-                    <div class="download"><span class="downloadbtnSpan" onclick="Download_ID('_____product_Id_to_download_____')"><i class="fa-solid fa-credit-card"></i></span></div>
-                  </div>
-                  <div class="content">
-                    <h1 class="title">$10 USD</h1>
-                  </div>
+            
+            <div class="course-card">
+                <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Python Programming" class="course-img">
+                <div class="course-content">
+                    <h3>Python Programming</h3>
+                    <p>Go from beginner to professional with our comprehensive Python course.</p>
+                    <div class="price">$39.99</div>
+                    <button class="btn" onclick="stripeCheckout('python')">Buy Now</button>
                 </div>
-              </div>
-              <div class="item" data-tilt>
-                <div class="item_wrp">
-                  <div class="img"><a href="https://buy.stripe.com/28o4iAcRv0MP0w0bIZ" target="_blank"><img src="images/200kscore.png" alt=""></a>
-                    <div class="download"><span class="downloadbtnSpan" onclick="Download_ID('_____product_Id_to_download_____')"><i class="fa-solid fa-credit-card"></i></span></div>
-                  </div>
-                  <div class="content">
-                    <h1 class="title">$20 USD</h1>
-                  </div>
-                </div>
-              </div>
-              <div class="item" data-tilt>
-                <div class="item_wrp">
-                  <div class="img"><a href="https://buy.stripe.com/fZecP6g3H5351A46oG" target="_blank"><img src="images/500kscore.png" alt=""></a>
-                    <div class="download"><span class="downloadbtnSpan" onclick="Download_ID('_____product_Id_to_download_____')"><i class="fa-solid fa-credit-card"></i></span></div>
-                  </div>
-                  <div class="content">
-                    <h1 class="title">$30 USD</h1>
-                  </div>
-                </div>
-              </div>
-              <div class="item" data-tilt>
-                <div class="item_wrp">
-                  <div class="img"><a href="https://buy.stripe.com/4gw4iA18NanpemQeVd" target="_blank"><img src="images/1mscore.png" alt=""></a>
-                    <div class="download"><span class="downloadbtnSpan" onclick="Download_ID('_____product_Id_to_download_____')"><i class="fa-solid fa-credit-card"></i></span></div>
-                  </div>
-                  <div class="content">
-                    <h1 class="title">$50 USD</h1>
-                  </div>
-                </div>
-              </div>
-
-
-
             </div>
-          </div>
+            
+            <div class="course-card">
+                <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Digital Marketing" class="course-img">
+                <div class="course-content">
+                    <h3>Digital Marketing Mastery</h3>
+                    <p>Learn SEO, social media and advertising strategies from experts.</p>
+                    <div class="price">$59.99</div>
+                    <button class="btn" onclick="stripeCheckout('marketing')">Buy Now</button>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
-
-
-    <script src="js/js-jquery.min.js"></script>
-    <script src="js/js-carousel.min.js"></script>
-    <script src="js/js-bootstrap.bundle.min.js"></script>
-    <script src="js/js-font-awsome.min.js"></script>
-    <script src="js/js-vanilla-tilt.min.js"></script>
-
-    <script src="js/js-main.js"></script>
+    
+    <section class="features" id="features">
+        <div class="section-title">
+            <h2>Why Choose Us?</h2>
+            <p>Enhance your learning experience with aqil.us</p>
+        </div>
+        
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>Expert Instructors</h3>
+                <p>Learn from industry professionals with real-world experience</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>Lifetime Access</h3>
+                <p>Access your courses anytime, anywhere, forever</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3>Certification</h3>
+                <p>Get certified and boost your career prospects</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>24/7 Support</h3>
+                <p>Our support team is always ready to help you</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer id="contact">
+        <div class="footer-links">
+            <a href="#">About Us</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">FAQ</a>
+        </div>
+        
+        <div class="social-links">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2023 aqil.us. All rights reserved.
+        </div>
+    </footer>
+    
+    <!-- Stripe Checkout Script -->
     <script src="https://js.stripe.com/v3/"></script>
-    <script src="js/js-core.js"></script>
-
-    <script src="js/2282-js-setupCarousel.js"></script>
-
-    <script src="js/3557-js-custom.js"></script>
-
-  </body>
-
-  </html>
+    <script>
+        const stripe = Stripe('YOUR_STRIPE_PUBLIC_KEY');
+        
+        function stripeCheckout(productId) {
+            // Create Stripe Checkout session
+            fetch('/create-checkout-session', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    productId: productId,
+                    currency: 'USD' // Explicitly set currency to USD
+                }),
+            })
+            .then(response => response.json())
+            .then(session => {
+                return stripe.redirectToCheckout({ sessionId: session.id });
+            })
+            .then(result => {
+                if (result.error) {
+                    alert(result.error.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
