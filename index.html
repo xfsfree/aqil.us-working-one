@@ -255,6 +255,96 @@
             font-size: 0.9rem;
         }
         
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+        
+        .modal-header {
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-header h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .modal-body {
+            margin-bottom: 2rem;
+        }
+        
+        .modal-body p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 0.3rem;
+            font-size: 1rem;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .shake {
+            animation: shake 0.5s;
+            border-color: #ff4444 !important;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+        
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -262,6 +352,11 @@
             
             .hero h1 {
                 font-size: 2.5rem;
+            }
+            
+            .modal-content {
+                margin: 10% auto;
+                width: 95%;
             }
         }
     </style>
@@ -301,7 +396,7 @@
                     <h3>HTML Quick Start Guide</h3>
                     <p>Essential HTML cheat sheet with practical examples for beginners.</p>
                     <div class="price">$3</div>
-                    <button class="btn" onclick="stripeCheckout('html-guide')">Buy Now</button>
+                    <button class="btn" onclick="openModal('html-guide')">Buy Now</button>
                 </div>
             </div>
             
@@ -312,7 +407,7 @@
                     <h3>CSS Fundamentals PDF</h3>
                     <p>Comprehensive guide to CSS selectors, properties and layouts.</p>
                     <div class="price">$5</div>
-                    <button class="btn" onclick="stripeCheckout('css-pdf')">Buy Now</button>
+                    <button class="btn" onclick="openModal('css-pdf')">Buy Now</button>
                 </div>
             </div>
             
@@ -323,7 +418,7 @@
                     <h3>JavaScript Basics Course</h3>
                     <p>2-hour video course covering JavaScript fundamentals.</p>
                     <div class="price">$12</div>
-                    <button class="btn" onclick="stripeCheckout('js-basics')">Buy Now</button>
+                    <button class="btn" onclick="openModal('js-basics')">Buy Now</button>
                 </div>
             </div>
             
@@ -334,7 +429,7 @@
                     <h3>Responsive Web Design</h3>
                     <p>Complete guide to creating mobile-friendly websites.</p>
                     <div class="price">$25</div>
-                    <button class="btn" onclick="stripeCheckout('responsive-design')">Buy Now</button>
+                    <button class="btn" onclick="openModal('responsive-design')">Buy Now</button>
                 </div>
             </div>
             
@@ -345,7 +440,7 @@
                     <h3>React.js Crash Course</h3>
                     <p>5-hour video course with hands-on React projects.</p>
                     <div class="price">$45</div>
-                    <button class="btn" onclick="stripeCheckout('react-course')">Buy Now</button>
+                    <button class="btn" onclick="openModal('react-course')">Buy Now</button>
                 </div>
             </div>
             
@@ -356,7 +451,7 @@
                     <h3>Python Programming Basics</h3>
                     <p>Introduction to Python syntax and core concepts.</p>
                     <div class="price">$10</div>
-                    <button class="btn" onclick="stripeCheckout('python-basics')">Buy Now</button>
+                    <button class="btn" onclick="openModal('python-basics')">Buy Now</button>
                 </div>
             </div>
             
@@ -367,7 +462,7 @@
                     <h3>Node.js Starter Kit</h3>
                     <p>Complete package for building your first Node.js application.</p>
                     <div class="price">$20</div>
-                    <button class="btn" onclick="stripeCheckout('node-starter')">Buy Now</button>
+                    <button class="btn" onclick="openModal('node-starter')">Buy Now</button>
                 </div>
             </div>
             
@@ -378,7 +473,7 @@
                     <h3>Vue.js Fundamentals</h3>
                     <p>3-hour video course on Vue.js framework basics.</p>
                     <div class="price">$30</div>
-                    <button class="btn" onclick="stripeCheckout('vue-course')">Buy Now</button>
+                    <button class="btn" onclick="openModal('vue-course')">Buy Now</button>
                 </div>
             </div>
             
@@ -389,7 +484,7 @@
                     <h3>Fullstack Developer Bundle</h3>
                     <p>Complete package including frontend and backend resources.</p>
                     <div class="price">$75</div>
-                    <button class="btn" onclick="stripeCheckout('fullstack-bundle')">Buy Now</button>
+                    <button class="btn" onclick="openModal('fullstack-bundle')">Buy Now</button>
                 </div>
             </div>
             
@@ -400,7 +495,7 @@
                     <h3>DevOps Essentials</h3>
                     <p>Comprehensive guide to modern DevOps practices.</p>
                     <div class="price">$50</div>
-                    <button class="btn" onclick="stripeCheckout('devops-guide')">Buy Now</button>
+                    <button class="btn" onclick="openModal('devops-guide')">Buy Now</button>
                 </div>
             </div>
             
@@ -411,7 +506,7 @@
                     <h3>Premium Developer Bundle</h3>
                     <p>All our courses and resources in one comprehensive package.</p>
                     <div class="price">$100</div>
-                    <button class="btn" onclick="stripeCheckout('premium-bundle')">Buy Now</button>
+                    <button class="btn" onclick="openModal('premium-bundle')">Buy Now</button>
                 </div>
             </div>
             
@@ -422,7 +517,7 @@
                     <h3>1-on-1 Mentorship Program</h3>
                     <p>Personalized guidance from industry experts for 1 month.</p>
                     <div class="price">$150</div>
-                    <button class="btn" onclick="stripeCheckout('mentorship')">Buy Now</button>
+                    <button class="btn" onclick="openModal('mentorship')">Buy Now</button>
                 </div>
             </div>
         </div>
@@ -489,35 +584,188 @@
         </div>
     </footer>
     
-    <!-- Stripe Checkout Script -->
-    <script src="https://js.stripe.com/v3/"></script>
+    <!-- Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="modal-header">
+                <h3 id="modalProductTitle">Product Title</h3>
+                <div class="price" id="modalProductPrice">$0</div>
+            </div>
+            <div class="modal-body">
+                <p id="modalProductDescription">Detailed product description will appear here.</p>
+                
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" placeholder="Enter your first name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" placeholder="Enter your last name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Enter your email address">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="proceedToPayment()">Continue to Payment</button>
+            </div>
+        </div>
+    </div>
+    
     <script>
-        const stripe = Stripe('YOUR_STRIPE_PUBLIC_KEY');
+        // Product descriptions data
+        const productData = {
+            'html-guide': {
+                title: 'HTML Quick Start Guide',
+                price: '$3',
+                description: 'This comprehensive HTML cheat sheet provides beginners with all the essential tags and elements needed to start building web pages. Includes practical examples for common structures like forms, tables, and semantic layout. Perfect for those just starting with web development.'
+            },
+            'css-pdf': {
+                title: 'CSS Fundamentals PDF',
+                price: '$5',
+                description: 'Master CSS with our detailed guide covering selectors, properties, and modern layout techniques including Flexbox and Grid. This 50-page PDF includes visual examples, code snippets, and best practices for writing maintainable CSS.'
+            },
+            'js-basics': {
+                title: 'JavaScript Basics Course',
+                price: '$12',
+                description: 'Our 2-hour video course takes you through JavaScript fundamentals including variables, functions, DOM manipulation, and event handling. Includes 5 practical exercises with solutions to reinforce your learning.'
+            },
+            'responsive-design': {
+                title: 'Responsive Web Design',
+                price: '$25',
+                description: 'Complete guide to creating websites that work perfectly on all devices. Covers media queries, responsive images, mobile-first approach, and performance optimization techniques. Includes 3 real-world project templates.'
+            },
+            'react-course': {
+                title: 'React.js Crash Course',
+                price: '$45',
+                description: '5-hour intensive video course teaching React fundamentals through hands-on projects. Learn components, props, state management, hooks, and routing. Includes build and deployment instructions for your React applications.'
+            },
+            'python-basics': {
+                title: 'Python Programming Basics',
+                price: '$10',
+                description: 'Perfect introduction to Python programming covering syntax, data structures, functions, and file handling. Includes interactive coding exercises and mini-projects to apply your knowledge.'
+            },
+            'node-starter': {
+                title: 'Node.js Starter Kit',
+                price: '$20',
+                description: 'Everything you need to build your first Node.js application. Includes Express setup, REST API creation, database connection examples (MongoDB and MySQL), and deployment guides.'
+            },
+            'vue-course': {
+                title: 'Vue.js Fundamentals',
+                price: '$30',
+                description: '3-hour video course introducing Vue.js framework concepts. Learn component architecture, directives, state management with Vuex, and routing with Vue Router. Includes a complete todo application project.'
+            },
+            'fullstack-bundle': {
+                title: 'Fullstack Developer Bundle',
+                price: '$75',
+                description: 'Complete package covering both frontend (HTML, CSS, JavaScript, React) and backend (Node.js, Express, Databases) development. Includes 10 projects of increasing complexity with video walkthroughs.'
+            },
+            'devops-guide': {
+                title: 'DevOps Essentials',
+                price: '$50',
+                description: 'Comprehensive guide to modern DevOps practices including CI/CD pipelines, containerization with Docker, orchestration with Kubernetes, and infrastructure as code. Perfect for developers looking to expand their skills.'
+            },
+            'premium-bundle': {
+                title: 'Premium Developer Bundle',
+                price: '$100',
+                description: 'Access to all our courses and resources in one comprehensive package. Includes all current and future content updates. Perfect for serious learners committed to mastering full-stack development.'
+            },
+            'mentorship': {
+                title: '1-on-1 Mentorship Program',
+                price: '$150',
+                description: 'Personalized guidance from industry experts for 1 month. Includes weekly 1-hour video calls, code reviews, career advice, and personalized learning path. Limited availability.'
+            }
+        };
         
-        function stripeCheckout(productId) {
-            // Create Stripe Checkout session
-            fetch('/create-checkout-session', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    productId: productId,
-                    currency: 'USD'
-                }),
-            })
-            .then(response => response.json())
-            .then(session => {
-                return stripe.redirectToCheckout({ sessionId: session.id });
-            })
-            .then(result => {
-                if (result.error) {
-                    alert(result.error.message);
+        // Payment links (replace with your actual payment links)
+        const paymentLinks = {
+            'html-guide': 'YOUR_PAYMENT_LINK_FOR_HTML_GUIDE',
+            'css-pdf': 'YOUR_PAYMENT_LINK_FOR_CSS_PDF',
+            'js-basics': 'YOUR_PAYMENT_LINK_FOR_JS_BASICS',
+            'responsive-design': 'YOUR_PAYMENT_LINK_FOR_RESPONSIVE_DESIGN',
+            'react-course': 'YOUR_PAYMENT_LINK_FOR_REACT_COURSE',
+            'python-basics': 'YOUR_PAYMENT_LINK_FOR_PYTHON_BASICS',
+            'node-starter': 'YOUR_PAYMENT_LINK_FOR_NODE_STARTER',
+            'vue-course': 'YOUR_PAYMENT_LINK_FOR_VUE_COURSE',
+            'fullstack-bundle': 'YOUR_PAYMENT_LINK_FOR_FULLSTACK_BUNDLE',
+            'devops-guide': 'YOUR_PAYMENT_LINK_FOR_DEVOPS_GUIDE',
+            'premium-bundle': 'YOUR_PAYMENT_LINK_FOR_PREMIUM_BUNDLE',
+            'mentorship': 'YOUR_PAYMENT_LINK_FOR_MENTORSHIP'
+        };
+        
+        let currentProductId = '';
+        
+        function openModal(productId) {
+            currentProductId = productId;
+            const product = productData[productId];
+            
+            document.getElementById('modalProductTitle').textContent = product.title;
+            document.getElementById('modalProductPrice').textContent = product.price;
+            document.getElementById('modalProductDescription').textContent = product.description;
+            
+            document.getElementById('productModal').style.display = 'block';
+        }
+        
+        function closeModal() {
+            document.getElementById('productModal').style.display = 'none';
+        }
+        
+        function proceedToPayment() {
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            
+            // Validate inputs
+            if (!firstName || !lastName || !email) {
+                // Add shake animation to empty fields
+                if (!firstName) {
+                    document.getElementById('firstName').classList.add('shake');
+                    setTimeout(() => {
+                        document.getElementById('firstName').classList.remove('shake');
+                    }, 500);
                 }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+                
+                if (!lastName) {
+                    document.getElementById('lastName').classList.add('shake');
+                    setTimeout(() => {
+                        document.getElementById('lastName').classList.remove('shake');
+                    }, 500);
+                }
+                
+                if (!email) {
+                    document.getElementById('email').classList.add('shake');
+                    setTimeout(() => {
+                        document.getElementById('email').classList.remove('shake');
+                    }, 500);
+                }
+                
+                return;
+            }
+            
+            // Validate email format
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById('email').classList.add('shake');
+                setTimeout(() => {
+                    document.getElementById('email').classList.remove('shake');
+                }, 500);
+                return;
+            }
+            
+            // If all valid, redirect to payment
+            window.location.href = paymentLinks[currentProductId];
+        }
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('productModal');
+            if (event.target === modal) {
+                closeModal();
+            }
         }
     </script>
 </body>
