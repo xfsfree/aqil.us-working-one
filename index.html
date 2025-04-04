@@ -255,7 +255,6 @@
             font-size: 0.9rem;
         }
         
-        /* Modal Styles */
         .modal {
             display: none;
             position: fixed;
@@ -389,7 +388,6 @@
         </div>
         
         <div class="course-grid">
-            <!-- $3 Product -->
             <div class="course-card">
                 <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Quick Start Guide" class="course-img">
                 <div class="course-content">
@@ -400,7 +398,6 @@
                 </div>
             </div>
             
-            <!-- $5 Product -->
             <div class="course-card">
                 <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="CSS Basics" class="course-img">
                 <div class="course-content">
@@ -411,7 +408,6 @@
                 </div>
             </div>
             
-            <!-- $12 Product -->
             <div class="course-card">
                 <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="JavaScript Mini-Course" class="course-img">
                 <div class="course-content">
@@ -422,7 +418,6 @@
                 </div>
             </div>
             
-            <!-- $25 Product -->
             <div class="course-card">
                 <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Web Design" class="course-img">
                 <div class="course-content">
@@ -433,7 +428,6 @@
                 </div>
             </div>
             
-            <!-- $45 Product -->
             <div class="course-card">
                 <img src="https://images.unsplash.com/photo-1550439062-609e1531270e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="React Course" class="course-img">
                 <div class="course-content">
@@ -444,7 +438,6 @@
                 </div>
             </div>
             
-            <!-- $10 Product -->
             <div class="course-card">
                 <img src="https://images.unsplash.com/photo-1541462608143-67571c6738dd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Python Basics" class="course-img">
                 <div class="course-content">
@@ -455,7 +448,6 @@
                 </div>
             </div>
             
-            <!-- $20 Product -->
             <div class="course-card">
                 <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Node.js Guide" class="course-img">
                 <div class="course-content">
@@ -466,7 +458,6 @@
                 </div>
             </div>
             
-            <!-- $30 Product -->
             <div class="course-card">
                 <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Vue.js Course" class="course-img">
                 <div class="course-content">
@@ -477,7 +468,6 @@
                 </div>
             </div>
             
-            <!-- $75 Product -->
             <div class="course-card">
                 <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Fullstack Bundle" class="course-img">
                 <div class="course-content">
@@ -488,7 +478,6 @@
                 </div>
             </div>
             
-            <!-- $50 Product -->
             <div class="course-card">
                 <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="DevOps Guide" class="course-img">
                 <div class="course-content">
@@ -499,7 +488,6 @@
                 </div>
             </div>
             
-            <!-- $100 Product -->
             <div class="course-card">
                 <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Premium Bundle" class="course-img">
                 <div class="course-content">
@@ -510,7 +498,6 @@
                 </div>
             </div>
             
-            <!-- $150 Product -->
             <div class="course-card">
                 <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Mentorship" class="course-img">
                 <div class="course-content">
@@ -584,7 +571,6 @@
         </div>
     </footer>
     
-    <!-- Product Modal -->
     <div class="modal" id="productModal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal()">&times;</span>
@@ -617,7 +603,6 @@
     </div>
     
     <script>
-        // Product descriptions data
         const productData = {
             'html-guide': {
                 title: 'HTML Quick Start Guide',
@@ -681,7 +666,6 @@
             }
         };
         
-        // Payment links (replace with your actual payment links)
         const paymentLinks = {
             'html-guide': 'YOUR_PAYMENT_LINK_FOR_HTML_GUIDE',
             'css-pdf': 'YOUR_PAYMENT_LINK_FOR_CSS_PDF',
@@ -719,9 +703,7 @@
             const lastName = document.getElementById('lastName').value.trim();
             const email = document.getElementById('email').value.trim();
             
-            // Validate inputs
             if (!firstName || !lastName || !email) {
-                // Add shake animation to empty fields
                 if (!firstName) {
                     document.getElementById('firstName').classList.add('shake');
                     setTimeout(() => {
@@ -746,7 +728,6 @@
                 return;
             }
             
-            // Validate email format
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 document.getElementById('email').classList.add('shake');
@@ -756,11 +737,9 @@
                 return;
             }
             
-            // If all valid, redirect to payment
             window.location.href = paymentLinks[currentProductId];
         }
         
-        // Close modal when clicking outside of it
         window.onclick = function(event) {
             const modal = document.getElementById('productModal');
             if (event.target === modal) {
