@@ -2,16 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Fullscreen Image</title>
+  <title>Rotated Image</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
       background: black;
+      overflow: hidden;
     }
-    body {
-      background: url('IMG-20250528-WA0018.jpg') no-repeat center center fixed;
+    body::before {
+      content: "";
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 100vh;
+      height: 100vw;
+      transform: translate(-50%, -50%) rotate(90deg);
+      background: url('IMG-20250528-WA0018.jpg') no-repeat center center;
       background-size: cover;
     }
   </style>
